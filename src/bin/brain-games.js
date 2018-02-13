@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-console.log('Welcome to the Brain Games!');
+import { authentication } from './index';
+console.log('Welcome to the Brain Games! ');
+authentication();
