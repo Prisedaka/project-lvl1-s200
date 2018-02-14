@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import requestName from './';
+import { playEven } from '..';
 
-console.log('Welcome to the Brain Games! \n Answer "yes" if number even otherwise answer "no".');
+console.log('Welcome to the Brain Games! \n Answer "yes" if number even otherwise answer "no".\n');
+playEven();
