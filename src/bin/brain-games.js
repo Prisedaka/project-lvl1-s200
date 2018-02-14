@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import authentication from './index';
+import requestName from './';
 
 console.log('Welcome to the Brain Games! ');
-authentication();
+requestName();
