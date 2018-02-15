@@ -1,12 +1,15 @@
 import readlineSync from 'readline-sync';
 
+// Common resources
 export const requestName = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
   return name;
 };
 
+// Games
 export const playEven = () => {
+  console.log('Welcome to the Brain Games! \n Answer "yes" if number even otherwise answer "no".\n');
   const name = requestName();
   for (let i = 1; i <= 3; i += 1) {
     const randomNum = Math.floor(Math.random() * 100);
@@ -18,3 +21,49 @@ export const playEven = () => {
   return console.log(`Congratulations, ${name}!\n`);
 };
 
+export const playCalc = () => {
+  console.log('Welcome to the Brain Games! \n What is the result of the expression?\n');
+  const name = requestName();
+  const generateOperation = (oper, num1, num2) => {
+    let result = 0;
+    switch (oper) {
+      case 1:
+        result = num1 + num2;
+        break;
+      case 2:
+        result = num1 - num2;
+        break;
+      case 3:
+        result = num1 * num2;
+        break;
+      default: break;
+    }
+    return result;
+  };
+  const getTypeOperator = (oper) => {
+    let result = '';
+    switch (oper) {
+      case 1:
+        result = '+';
+        break;
+      case 2:
+        result = '-';
+        break;
+      case 3:
+        result = '*';
+        break;
+      default: break;
+    }
+    return result;
+  };
+  for (let i = 1; i <= 3; i += 1) {
+    const randomNum1 = Math.floor(Math.random() * 100);
+    const randomNum2 = Math.floor(Math.random() * 100);
+    const operator = Math.floor((Math.random() * 3) + 1);
+    const correctAnswer = generateOperation(operator, randomNum1, randomNum2);
+    const answer = readlineSync.question(`Question: ${randomNum1} ${getTypeOperator(operator)} ${randomNum2} \n Your answer: `);
+    if (Number(answer) === correctAnswer) console.log('Correct!');
+    else return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \n Let's try again, ${name}!`);
+  }
+  return console.log(`Congratulations, ${name}!\n`);
+};
