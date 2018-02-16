@@ -32,18 +32,15 @@ const getTypeOperator = (oper) => {
   }
   return result;
 };
-const playGame = () => {
-  // constant
-  const taskGame = 'What is the result of the expression?';
-  // game
-  engine.greeting(taskGame);
-  const name = engine.requestName();
-  for (let i = 1; i <= 3; i += 1) {
-    const randomNum1 = Math.floor(Math.random() * 100);
-    const randomNum2 = Math.floor(Math.random() * 100);
-    const operator = Math.floor((Math.random() * 3) + 1);
+const taskGame = 'What is the result of the expression?';
+const randomNum1 = Math.floor(Math.random() * 100);
+const randomNum2 = Math.floor(Math.random() * 100);
+const operator = Math.floor((Math.random() * 3) + 1);
+const gameExpression = `${randomNum1} ${getTypeOperator(operator)} ${randomNum2}`;
+
+playGame(taskGame, gameExpression, );
+ 
     const correctAnswer = generateOperation(operator, randomNum1, randomNum2);
-    const gameExpression = `${randomNum1} ${getTypeOperator(operator)} ${randomNum2}`;
     const gamerAnswer = engine.askQuestion(gameExpression);
     const isGamerRight = Number(gamerAnswer) === correctAnswer;
     engine.rule(gamerAnswer, correctAnswer, isGamerRight, name);

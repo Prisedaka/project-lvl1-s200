@@ -1,27 +1,17 @@
 import readlineSync from 'readline-sync';
 
-export const greeting = (task) => {
+const playGame = (task, question, isRight, correctAnswer) => {
   console.log(`Welcome to the Brain Games! \n ${task}\n`);
-};
-export const requestName = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
-  return name;
-};
-export const askQuestion = (question) => {
-  const answer = readlineSync.question(`Question: ${question} \n Your answer: `);
-  return answer;
-};
-export const rule = (answer, corAnsw, isRight, gamer) => {
-  let isNext = true;
-  if (isRight) {
-    console.log('Correct!');
-  };
-  else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${corAnsw}'. \n Let's try again, ${gamer}!`);
-    isNext = false;
+  for (let i = 1; i <= 3; i += 1) {
+    const answer = readlineSync.question(`Question: ${question} \n Your answer: `);
+    if (isRight) console.log('Correct!');
+    else return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \n Let's try again, ${name}!`);
   }
+  return console.log(`Congratulations, ${name}!\n`);
 };
+
 // Games
 export const playEven = () => {
   console.log('Welcome to the Brain Games! \n Answer "yes" if number even otherwise answer "no".\n');
