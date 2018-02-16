@@ -1,4 +1,5 @@
-import * as engine from '..';
+import { cons, car, cdr, toString } from 'hexlet-pairs';
+import { playGame, generator } from '..';
 
 const generateOperation = (oper, num1, num2) => {
   let result = 0;
@@ -32,19 +33,13 @@ const getTypeOperator = (oper) => {
   }
   return result;
 };
-const taskGame = 'What is the result of the expression?';
-const randomNum1 = Math.floor(Math.random() * 100);
-const randomNum2 = Math.floor(Math.random() * 100);
-const operator = Math.floor((Math.random() * 3) + 1);
-const gameExpression = `${randomNum1} ${getTypeOperator(operator)} ${randomNum2}`;
-
-playGame(taskGame, gameExpression, );
- 
-    const correctAnswer = generateOperation(operator, randomNum1, randomNum2);
-    const gamerAnswer = engine.askQuestion(gameExpression);
-    const isGamerRight = Number(gamerAnswer) === correctAnswer;
-    engine.rule(gamerAnswer, correctAnswer, isGamerRight, name);
-  }
-  return console.log(`Congratulations, ${name}!\n`);
+const gamePair = () => {
+  const randomNum1 = Math.floor(Math.random() * 100);
+  const randomNum2 = Math.floor(Math.random() * 100);
+  const operator = Math.floor((Math.random() * 3) + 1);
+  const correctAnswer = String(generateOperation(operator, randomNum1, randomNum2));
+  return cons(`${randomNum1} ${getTypeOperator(operator)} ${randomNum2}`, correctAnswer);
 };
-export default playGame;
+const gameTask = 'What is the result of the expression?';
+const start = () => playGame(gameTask, generator(gamePair));
+export default start;
