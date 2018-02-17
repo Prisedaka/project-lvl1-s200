@@ -10,6 +10,8 @@ start_balance:
 	npm run babel-node -- src/bin/brain-balance.js
 start_progression:
 	npm run babel-node -- src/bin/brain-progression.js
+start_prime:
+	npm run babel-node -- src/bin/brain-prime.js
 publish:
 	npm publish
 lint:

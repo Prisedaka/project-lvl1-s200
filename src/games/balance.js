@@ -25,8 +25,12 @@ const replace = (str, index, replacement) => `${str.substr(0, index)}${replaceme
 const balance = (balanceNum) => {
   const diff = car(maxPair(balanceNum)) - car(minPair(balanceNum));
   if (diff === 1 || diff === 0) return String(balanceNum);
-  const replaceMax = replace(String(balanceNum), cdr(maxPair(balanceNum)), car(maxPair(balanceNum)) - (diff - 1));
-  const replaceMin = replace(replaceMax, cdr(minPair(balanceNum)), car(minPair(balanceNum)) + (diff - 1));
+  const maxNum = car(maxPair(balanceNum));
+  const maxIndex = cdr(maxPair(balanceNum));
+  const minNum = car(minPair(balanceNum));
+  const minIndex = cdr(minPair(balanceNum));
+  const replaceMax = replace(String(balanceNum), maxIndex, maxNum - (diff - 1));
+  const replaceMin = replace(replaceMax, minIndex, minNum + (diff - 1));
   return balance(replaceMin);
 };
 const sort = (str) => {
