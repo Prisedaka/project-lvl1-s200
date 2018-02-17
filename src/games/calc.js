@@ -1,5 +1,5 @@
 import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { playGame, generator } from '..';
+import playGame from '..';
 
 const generateOperation = (oper, num1, num2) => {
   let result = 0;
@@ -41,5 +41,5 @@ const gamePair = () => {
   return cons(`${randomNum1} ${getTypeOperator(operator)} ${randomNum2}`, correctAnswer);
 };
 const gameTask = 'What is the result of the expression?';
-const start = () => playGame(gameTask, generator(gamePair));
+const start = () => playGame(gameTask, gamePair);
 export default start;

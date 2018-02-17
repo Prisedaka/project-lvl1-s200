@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr, toString } from 'hexlet-pairs';
 
-export const generator = f => arg => f(arg);
-export const playGame = (task, exprCorAnswer) => {
+// export const generator = f => arg => f(arg);
+const playGame = (task, exprCorAnswer) => {
   console.log(`Welcome to the Brain Games! \n ${task}\n`);
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
@@ -14,3 +14,4 @@ export const playGame = (task, exprCorAnswer) => {
   }
   return console.log(`Congratulations, ${name}!\n`);
 };
+export default playGame;

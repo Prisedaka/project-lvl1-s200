@@ -1,5 +1,5 @@
 import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { playGame, generator } from '..';
+import playGame from '..';
 
 const gcd = (num1, num2) => {
   if (num2 === 0) return num1;
@@ -12,5 +12,5 @@ const gamePair = () => {
   return cons(`${randomNum1} ${randomNum2}`, correctAnswer);
 };
 const gameTask = 'Find the greatest common divisor of given numbers.';
-const start = () => playGame(gameTask, generator(gamePair));
+const start = () => playGame(gameTask, gamePair);
 export default start;
