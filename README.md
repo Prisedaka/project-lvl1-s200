@@ -5,7 +5,7 @@
 
 ## Installation
 ```
-$ npm install debug
+$ npm install brain-games-prisedaka
 ```
 ## Перечень ключевых компонентов приложения: 
 * Пакетный менеджер (npm, yarn). Управляет зависимостями, выполняет хуки и описывает проект. 
